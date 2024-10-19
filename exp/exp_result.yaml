@@ -1,0 +1,70 @@
+exp_base:
+  ATE_unadjusted: -0.2240035541871202
+  ATE_adjusted: -0.16479750378762317
+exp:
+  model_name: DistilBertModel
+  batch_size: 32
+  epochs: 32
+  ATE: -0.3312426301821907 <- 意味不明すぎる? batch増やしちゃいけないのか??
+
+exp:  デフォルトの実装
+  model_name: DistilBertModel
+  batch_size: 2
+  epochs: 1
+  ATE: -0.21266833189349585
+  ATE: -0.25487010619410133
+exp: 
+  model_name: DistilBertModel
+  batch_size: 2
+  epochs: 3
+  ATE: -0.22335845758647677
+  ATE: -0.22335845758647677
+
+exp0:
+  ATE_unadjusted: 0.10267981830743678
+  ATE_adjusted: 0.09569120157102906
+exp1:
+  model_name: timm/efficientvit_m2.r224_in1k
+  batch_size: 32
+  epochs: 32
+  ATE: 0.0820203568978214
+exp2:
+  model_name: timm/vit_base_patch32_clip_224.laion2b_ft_in12k_in1k
+  batch_size: 32
+  epochs: 32
+  ATE: 0.12765600371196434
+exp3:
+  model_name: timm/eva02_small_patch14_224.mim_in22k
+  batch_size: 32
+  epochs: 32
+  ATE: 0.08101775014206557
+exp4:
+  model_name: timm/eva02_base_patch14_224.mim_in22k
+  batch_size: 32
+  epochs: 32
+  ATE: 0.029029401906197665
+exp5:
+  model_name: timm/eva02_tiny_patch14_224.mim_in22k
+  batch_size: 32
+  epochs: 32
+  ATE: 0.012155441045692748
+exp6:
+  model_name: timm/eva02_tiny_patch14_224.mim_in22k
+  batch_size: 2
+  epochs: 1
+  ATE: 0.08714497012416576
+exp7:
+  model_name: timm/eva02_base_patch14_224.mim_in22k
+  batch_size: 2
+  epochs: 1
+  ATE: 0.14573934599625996
+exp8:
+  model_name: timm/eva02_base_patch14_224.mim_in22k
+  batch_size: 2
+  epochs: 3
+  ATE: -0.2404450333440894
+exp8:
+  model_name: timm/eva02_base_patch14_224.mim_in22k
+  batch_size: 2
+  epochs: 3
+  ATE: 0.1664736950509447

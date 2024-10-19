@@ -95,8 +95,6 @@ class CausalBert(DistilBertPreTrainedModel):
                 nn.ReLU(),
                 nn.Linear(200, self.num_labels))
         
-        print("config",config.hidden_size + self.num_labels)
-        print(config)
 
         self.g_cls = nn.Linear(config.hidden_size + self.num_labels, 
             self.config.num_labels)
@@ -136,7 +134,6 @@ class CausalBert(DistilBertPreTrainedModel):
         
         # g logits
         g = self.g_cls(inputs)
-        print("g",g.shape,g)
         
         if Y is not None:  # TODO train/test mode, this is a lil hacky
             g_loss = CrossEntropyLoss()(g.view(-1, self.num_labels), T.view(-1))

@@ -165,6 +165,8 @@ class CausalBert(RobertaPreTrainedModel):
         else:
             Q_loss = 0.0
 
+        print("Q_logits_T0", Q_logits_T0)
+        print("Q_logits_T1", Q_logits_T1)
         sm = nn.Softmax(dim=1)
         Q0 = sm(Q_logits_T0)[:, 1]
         Q1 = sm(Q_logits_T1)[:, 1]
@@ -245,6 +247,7 @@ class CausalBertWrapper:
             Q1s += Q1.detach().cpu().numpy().tolist()
             Ys += Y.detach().cpu().numpy().tolist()
             # if i > 5: break
+        print(Q0s,Q1s)
         probs = np.array(list(zip(Q0s, Q1s)))
         preds = np.argmax(probs, axis=1)
 

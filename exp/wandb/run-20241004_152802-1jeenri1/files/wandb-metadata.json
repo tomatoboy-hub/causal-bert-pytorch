@@ -1,0 +1,41 @@
+{
+  "os":  "Linux-4.15.0-197-generic-x86_64-with-glibc2.29",
+  "python":  "3.8.10",
+  "startedAt":  "2024-10-04T15:28:02.922238Z",
+  "program":  "/root/graduation_thetis/causal-bert-pytorch/exp/image_causal_wandb.ipynb",
+  "git":  {
+    "remote":  "https://github.com/tomatoboy-hub/causal-bert-pytorch.git",
+    "commit":  "76e18156ea623aace5715bc2bf8419ebb3e7f97e"
+  },
+  "email":  "hayatarou.ay@gmail.com",
+  "root":  "/root/graduation_thetis/causal-bert-pytorch/exp",
+  "host":  "66ae3d81c0dc",
+  "username":  "root",
+  "executable":  "/root/.venv/bin/python",
+  "codePathLocal":  "image_causal_wandb.ipynb",
+  "cpu_count":  16,
+  "cpu_count_logical":  32,
+  "gpu":  "[]",
+  "gpu_count":  1,
+  "disk":  {
+    "/":  {
+      "total":  "486799310848",
+      "used":  "110651125760"
+    }
+  },
+  "memory":  {
+    "total":  "67176329216"
+  },
+  "cpu":  {
+    "count":  16,
+    "countLogical":  32
+  },
+  "gpu_nvidia":  [
+    {
+      "memoryTotal":  "17179869184",
+      "cudaCores":  2560,
+      "architecture":  "Pascal"
+    }
+  ],
+  "cudaVersion":  "12.3"
+}

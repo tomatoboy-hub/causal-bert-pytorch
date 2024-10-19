@@ -1,0 +1,16 @@
+defaults:
+  - model: resnet50
+  - training: default
+
+model:
+  resnet50:
+    name: resnet50
+    num_labels: 2
+
+training:
+  default:
+    learning_rate: 2e-5
+    epochs: 3
+    batch_size: 32
+    g_weight: 1.0
+    Q_weight: 0.1

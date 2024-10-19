@@ -1,0 +1,24 @@
+pretrained_model: timm/eva02_tiny_patch14_224.mim_in22k
+pretrained: True
+num_classes: 2
+num_labels: 2
+loss_weights:
+  g: 0.1
+  Q: 0.1
+CUDA: True
+learning_rate: 2e-5
+
+
+#
+df_path: /root/graduation_thetis/causal-bert-pytorch/input/outputs_v4.csv
+image_column: img_path
+confounds_column: light_or_dark
+treatments_column: price_ave
+outcome_column: outcome
+
+batch_size: 32
+num_workers: 4
+epoch: 32
+seed: 42
+
+total_training_steps: ??? 

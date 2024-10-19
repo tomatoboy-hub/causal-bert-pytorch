@@ -127,3 +127,14 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#pytorch-lightning
+lightning_logs
+
+.csv
+embeddings
+images
+wandb
+outputs
+logs
+watch_images
