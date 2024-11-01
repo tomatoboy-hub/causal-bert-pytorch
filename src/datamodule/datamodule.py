@@ -69,7 +69,7 @@ class CausalImageDataModule(LightningDataModule):
         self.train_dataset = CausalImageDataset(cfg = self.cfg,df = self.df)
         self.predict_dataset = CausalImageDataset_validation(cfg = self.cfg,df = self.df)
     def train_dataloader(self):
-        sampler = RandomSampler(self.train_dataset)
+        sampler = SequentialSampler(self.train_dataset)
         train_loader = DataLoader(
             self.train_dataset,
             batch_size = self.cfg.batch_size,

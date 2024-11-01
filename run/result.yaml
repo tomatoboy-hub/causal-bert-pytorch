@@ -1,0 +1,180 @@
+exp1:
+  ATE: 0.07823044301023971
+  batch_size: 2
+  epochs: 1
+  model_name: timm/eva02_tiny_patch14_224.mim_in22k
+exp10:
+  ATE: 0.05137382735662429
+  batch_size: 32
+  epochs: 10
+  model_name: timm/eva02_tiny_patch14_224.mim_in22k
+exp11:
+  ATE: 0.09420707939301261
+  batch_size: 32
+  epochs: 20
+  model_name: timm/eva02_tiny_patch14_224.mim_in22k
+exp12:
+  ATE: 0.09268595240271696
+  batch_size: 32
+  epochs: 32
+  model_name: timm/eva02_tiny_patch14_224.mim_in22k
+exp17:
+  ATE: 0.147219091249975
+  batch_size: 2
+  epochs: 1
+  model_name: timm/efficientvit_m2.r224_in1k
+exp18:
+  ATE: -0.08360505705853333
+  batch_size: 2
+  epochs: 10
+  model_name: timm/efficientvit_m2.r224_in1k
+exp19:
+  ATE: 0.16500853246712058
+  batch_size: 2
+  epochs: 20
+  model_name: timm/efficientvit_m2.r224_in1k
+exp2:
+  ATE: 0.06378498926783571
+  batch_size: 2
+  epochs: 10
+  model_name: timm/eva02_tiny_patch14_224.mim_in22k
+exp20:
+  ATE: 0.14596791504171186
+  batch_size: 2
+  epochs: 32
+  model_name: timm/efficientvit_m2.r224_in1k
+exp21:
+  ATE: 0.0865392739633572
+  batch_size: 10
+  epochs: 1
+  model_name: timm/efficientvit_m2.r224_in1k
+exp22:
+  ATE: 0.06903728820118872
+  batch_size: 10
+  epochs: 10
+  model_name: timm/efficientvit_m2.r224_in1k
+exp23:
+  ATE: 0.12323004471618985
+  batch_size: 10
+  epochs: 20
+  model_name: timm/efficientvit_m2.r224_in1k
+exp24:
+  ATE: 0.054838840597682056
+  batch_size: 10
+  epochs: 32
+  model_name: timm/efficientvit_m2.r224_in1k
+exp25:
+  ATE: 0.09399339059047629
+  batch_size: 32
+  epochs: 1
+  model_name: timm/efficientvit_m2.r224_in1k
+exp26:
+  ATE: 0.15677224972148648
+  batch_size: 32
+  epochs: 10
+  model_name: timm/efficientvit_m2.r224_in1k
+exp27:
+  ATE: 0.09911563876972304
+  batch_size: 32
+  epochs: 20
+  model_name: timm/efficientvit_m2.r224_in1k
+exp28:
+  ATE: 0.10049025926766107
+  batch_size: 32
+  epochs: 32
+  model_name: timm/efficientvit_m2.r224_in1k
+exp3:
+  ATE: -0.018857224453066666
+  batch_size: 2
+  epochs: 20
+  model_name: timm/eva02_tiny_patch14_224.mim_in22k
+exp33:
+  ATE: 0.09383078680722313
+  batch_size: 2
+  epochs: 1
+  model_name: timm/vit_base_patch32_clip_224.laion2b_ft_in12k_in1k
+exp34:
+  ATE: 0.08431483174700999
+  batch_size: 2
+  epochs: 10
+  model_name: timm/vit_base_patch32_clip_224.laion2b_ft_in12k_in1k
+exp35:
+  ATE: 0.12361648962679468
+  batch_size: 2
+  epochs: 20
+  model_name: timm/vit_base_patch32_clip_224.laion2b_ft_in12k_in1k
+exp36:
+  ATE: 0.27059446833380446
+  batch_size: 2
+  epochs: 32
+  model_name: timm/vit_base_patch32_clip_224.laion2b_ft_in12k_in1k
+exp37:
+  ATE: 0.127865522994941
+  batch_size: 10
+  epochs: 1
+  model_name: timm/vit_base_patch32_clip_224.laion2b_ft_in12k_in1k
+exp38:
+  ATE: 0.11913598518679629
+  batch_size: 10
+  epochs: 10
+  model_name: timm/vit_base_patch32_clip_224.laion2b_ft_in12k_in1k
+exp39:
+  ATE: 0.1293584425029901
+  batch_size: 10
+  epochs: 20
+  model_name: timm/vit_base_patch32_clip_224.laion2b_ft_in12k_in1k
+exp4:
+  ATE: 0.014385125014661215
+  batch_size: 2
+  epochs: 32
+  model_name: timm/eva02_tiny_patch14_224.mim_in22k
+exp40:
+  ATE: 0.12576244882882998
+  batch_size: 10
+  epochs: 32
+  model_name: timm/vit_base_patch32_clip_224.laion2b_ft_in12k_in1k
+exp41:
+  ATE: 0.10108709069432822
+  batch_size: 32
+  epochs: 1
+  model_name: timm/vit_base_patch32_clip_224.laion2b_ft_in12k_in1k
+exp42:
+  ATE: 0.05224401127883038
+  batch_size: 32
+  epochs: 10
+  model_name: timm/vit_base_patch32_clip_224.laion2b_ft_in12k_in1k
+exp43:
+  ATE: 0.06049785772846332
+  batch_size: 32
+  epochs: 20
+  model_name: timm/vit_base_patch32_clip_224.laion2b_ft_in12k_in1k
+exp44:
+  ATE: 0.17965615914719546
+  batch_size: 32
+  epochs: 32
+  model_name: timm/vit_base_patch32_clip_224.laion2b_ft_in12k_in1k
+exp5:
+  ATE: 0.13287268224188875
+  batch_size: 10
+  epochs: 1
+  model_name: timm/eva02_tiny_patch14_224.mim_in22k
+exp6:
+  ATE: 0.06681641206140548
+  batch_size: 10
+  epochs: 10
+  model_name: timm/eva02_tiny_patch14_224.mim_in22k
+exp7:
+  ATE: 0.0754407082398071
+  batch_size: 10
+  epochs: 20
+  model_name: timm/eva02_tiny_patch14_224.mim_in22k
+exp8:
+  ATE: 0.06982952409326283
+  batch_size: 10
+  epochs: 32
+  model_name: timm/eva02_tiny_patch14_224.mim_in22k
+exp9:
+  ATE: 0.1844265678800195
+  batch_size: 32
+  epochs: 1
+  model_name: timm/eva02_tiny_patch14_224.mim_in22k

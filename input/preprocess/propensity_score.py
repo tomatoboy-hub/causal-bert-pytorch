@@ -54,10 +54,10 @@ def make_price_dark_probs(df,treat_strength,con_strength,probability_0, probabil
     return df
 
 if __name__ == "__main__":
-    csv_path = "root/graduation_thetis/causal-bert-pytorch/input/watch_train.csv"
+    csv_path = "./watch_train.csv"
     confounder = "light_or_dark"
     treatment = "price_ave"
     df = pd.read_csv(csv_path)
     probability_0, probability_1 = calculate_propensity_score(df, confounder, treatment)
     df = make_price_dark_probs(df,0.5, 5.0,probability_0,probability_1,0.0,"simple", 0)
-    df.to_csv("root/graduation_thetis/causal-bert-pytorch/input/watch_output.csv", index = None)
+    df.to_csv("./watch_outcome_sim.csv", index = None)

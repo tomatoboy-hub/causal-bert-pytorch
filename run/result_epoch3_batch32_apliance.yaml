@@ -1,0 +1,15 @@
+exp1:
+  ATE: 0.07075143038768797
+  batch_size: 32
+  epochs: 3
+  model_name: timm/eva02_tiny_patch14_224.mim_in22k
+exp2:
+  ATE: 0.10606016100511186
+  batch_size: 32
+  epochs: 3
+  model_name: timm/efficientvit_m2.r224_in1k
+exp3:
+  ATE: 0.10669114379016557
+  batch_size: 32
+  epochs: 3
+  model_name: timm/vit_base_patch32_clip_224.laion2b_ft_in12k_in1k

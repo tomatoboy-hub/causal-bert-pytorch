@@ -38,8 +38,9 @@ class ImageCausalModel(LightningModule):
         self.init_weights()
         self.Q0s = []
         self.Q1s = []
+        self.g_losses = []
+        self.Q_losses = []
         self.losses = []
-
         self.total_training_steps = cfg.total_training_steps
 
     def init_weights(self):
@@ -54,20 +55,28 @@ class ImageCausalModel(LightningModule):
         return g_prob, Q_prob_T0, Q_prob_T1, g_loss, Q_loss
     
     def training_step(self,batch,batch_idx):
+        self.train()
         g_prob, Q_prob_T0, Q_prob_T1, g_loss, Q_loss = self.forward(batch, batch_idx)
-        loss = (self.cfg.loss_weights.g * g_loss + 
-                self.cfg.loss_weights.Q * Q_loss)
+        loss = (self.cfg.loss_weights.g * g_loss + self.cfg.loss_weights.Q * Q_loss)
+        self.g_losses.append(g_loss)
+        self.Q_losses.append(Q_loss)
         self.log("g_loss", g_loss)
         self.log("Q_loss", Q_loss)
         self.log("train_loss" , loss)
         self.losses.append(loss)
+
         return loss
     
     def on_train_epoch_end(self):
         self.log("train_epoch_loss", torch.stack(self.losses).mean())
+        self.log("g_losses", torch.stack(self.g_losses).mean())
+        self.log("Q_losses", torch.stack(self.Q_losses).mean())
+        print(len(self.losses))
         self.losses.clear()
+        self.g_losses.clear()
+        self.Q_losses.clear()
         return 
-    
+    """
     def validation_step(self,batch,batch_idx):
         g_prob, Q_prob_T0, Q_prob_T1, g_loss, Q_loss = self.forward(batch, batch_idx)
         self.Q0s += Q_prob_T0.detach().cpu().numpy().tolist()
@@ -82,8 +91,9 @@ class ImageCausalModel(LightningModule):
         preds = np.argmax(probs,axis = 1)
 
         return probs,preds
-    
+    """
     def predict_step(self,batch,batch_idx):
+        self.eval()
         g_prob, Q_prob_T0, Q_prob_T1, g_loss, Q_loss = self.forward(batch, batch_idx)
         Q0s = Q_prob_T0.detach().cpu().numpy().tolist()
         Q1s = Q_prob_T1.detach().cpu().numpy().tolist()
@@ -93,13 +103,10 @@ class ImageCausalModel(LightningModule):
     
     def on_predict_epoch_end(self):
         print("on_predict_epoch_end")
-        print(len(self.Q0s), len(self.Q1s))
         probs = np.array(list(zip(self.Q0s, self.Q1s)))
-        print("probs_shape",probs.shape)
         preds = np.argmax(probs,axis = 1)
-        ate_value = self.ATE(probs)
-        print("ATE", ate_value)
-        self.logger.experiment.log({"ATE": ate_value})
+        self.ate_value = self.ATE(probs)
+        self.logger.experiment.log({"ATE": self.ate_value})
         return {"probs": probs, "preds": preds}
     
     def ATE(self,probs):
@@ -114,6 +121,7 @@ class ImageCausalModel(LightningModule):
     def __share_step(self, batch, batch_idx):
         images, confounds, treatment,outcome = batch
         features = self.base_model(images)
+    
         C = self._make_confound_vector(confounds.unsqueeze(1), self.cfg.num_labels)
         inputs = torch.cat((features, C), dim = 1)
         g = self.g_cls(inputs)
@@ -149,10 +157,10 @@ class ImageCausalModel(LightningModule):
         optimizer = AdamW(self.parameters(), lr = self.cfg.learning_rate, eps = 1e-8)
         scheduler = get_linear_schedule_with_warmup(
             optimizer,
-            num_warmup_steps = int(0.1 * self.total_training_steps),
+            num_warmup_steps = 0.1 * self.total_training_steps,
             num_training_steps = self.total_training_steps
         )
-        return [optimizer], [scheduler]
+        return [optimizer],[{"scheduler": scheduler, "interval": "step", "frequency": 1}]
         
     def _make_confound_vector(self,ids, vocab_size, use_counts = False):
         vec = torch.zeros(ids.shape[0],vocab_size)
